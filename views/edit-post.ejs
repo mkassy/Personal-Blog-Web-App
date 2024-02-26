@@ -1,0 +1,22 @@
+<%- include('partials/header.ejs') %>
+
+    <div class="main-section">
+        <div class="edit-post-container">
+            <h3>Edit Post</h3>
+            <div class="post-form">
+                <form action="/edit-post/<%= postId %>" method="POST">
+                    <div class="form-group">
+                        <input type="text" id="title" name="title" placeholder="Title:" value="<%= post.title %>"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="content" name="content" placeholder="Content:"
+                            required><%= post.content %></textarea>
+                    </div>
+                    <button type="submit">SAVE</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <%- include('partials/footer.ejs') %>
