@@ -34,13 +34,10 @@ button {
 }
 
 
-logo {
+.logo {
     margin-left: 20px;
     display: flex;
     align-items: center;
-}
-
-logo a {
     font-size: 2rem;
     text-decoration: none;
     font-style: normal;
