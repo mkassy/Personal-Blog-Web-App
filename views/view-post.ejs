@@ -1,14 +1,25 @@
 <%- include('partials/header.ejs') %>
-    
-        <div class="main-section">
-            <div class="view-post-container">
-                <h3><%= post.title %></h3>
-                <p>
-                    <%= post.content %>
-                </p>
-                <a href="/edit-post/<%= post._id %>">Edit</a>
-                <a href="/delete-post/<%= post._id %>">Delete</a>
-            </div>
+
+    <div class="main-section">
+        <div class="view-posts-container">
+            <h3>Your Posts</h3>
+            <% posts.forEach((post, index)=> { %>
+                <div class="post">
+                    <h4>
+                        <%= post.title %>
+                    </h4>
+                    <p>
+                        <%= post.content %>
+                    </p>
+                    <a href="/view-post/<%= index %>" class="view">Read more</a>
+                    <!-- <a href="/edit-post/<%#= index %>" class="edit">Edit</a> -->
+                    <!-- <form action="/delete-post/<%#= index %>" method="POST"> -->
+                    <!-- <button type="submit" class="delete">Delete</button> -->
+                    <!-- </form> -->
+                </div>
+                <% }); %>
         </div>
-    
-        <%- include('partials/footer.ejs') %>
+
+    </div>
+
+    <%- include('partials/footer.ejs') %>
