@@ -27,7 +27,7 @@ body {
 li,
 a,
 button {
-    font-style: italic;
+    /* font-style: italic; */
     font-size: 1rem;
     text-decoration: none;
     color: black;
@@ -65,9 +65,13 @@ nav ul li a:hover {
 
 h3, h4, p {
     font-family: "Libre Baskerville", serif;
-    font-style: italic;
+    /* font-style: italic; */
     font-weight: 400;
     /* background-color: white; */
+}
+
+h3 {
+    font-style: italic;
 }
 
 h1 {
@@ -246,6 +250,16 @@ textarea {
     font-style: normal;
     font-size: 14px;
 }
+
+.post .read-more {
+    text-align: right;
+    display: none;
+}
+
+.post:hover .read-more {
+    display: block;
+}
+
 
 footer p {
     text-align: center;

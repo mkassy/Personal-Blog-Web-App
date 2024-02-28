@@ -4,22 +4,34 @@
         <div class="view-posts-container">
             <h3>Your Posts</h3>
             <% posts.forEach((post, index)=> { %>
+            <a href="/view-post/<%= index %>" class="post-link">
                 <div class="post">
                     <h4>
                         <%= post.title %>
                     </h4>
+                    <!-- Truncate the content to display only a summary -->
                     <p>
-                        <%= post.content %>
+                        <%= truncate(post.content, 100) %>
                     </p>
-                    <a href="/view-post/<%= index %>" class="view">Read more</a>
+                    <p class="read-more">Read more</p>
+                    <!-- <a href="/view-post/<%#= index %>" class="view">Read more</a> -->
                     <!-- <a href="/edit-post/<%#= index %>" class="edit">Edit</a> -->
                     <!-- <form action="/delete-post/<%#= index %>" method="POST"> -->
                     <!-- <button type="submit" class="delete">Delete</button> -->
                     <!-- </form> -->
                 </div>
-                <% }); %>
+            </a>
+            <% }); %>
         </div>
 
     </div>
+
+    <% function truncate(text, maxLength) { 
+        if (text.length> maxLength) {
+            return text.substring(0, maxLength) + '...';
+        } else {
+            return text;
+        }
+    } %>
 
     <%- include('partials/footer.ejs') %>
