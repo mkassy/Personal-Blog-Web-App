@@ -1,5 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 const port = 3000;
@@ -12,7 +15,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // GET route to render the homepage
 app.get('/', (req, res) => {
-    res.render('index.ejs', { posts });
+    res.render('index.ejs');
+});
+
+// GET route to render the create post form
+app.get('/create-post', (req, res) => { 
+    res.render('create-post.ejs');
 });
 
 
@@ -25,14 +33,27 @@ app.post('/create-post', (req, res) => {
 });
 
 
+// GET route to render view post page
+app.get('/view-post/:postId', (req, res) => {
+    const postId = req.params.postId;
+    const post = posts[postId];
+    res.render('view-post.ejs', { posts, post }); 
+});
+
+// GET route to render the view-to-edit page
+app.get('/view-to-edit/:postId', (req, res) => {
+    const postId = req.params.postId;
+    const post = posts[postId];
+    res.render('view-to-edit.ejs', { posts, post });
+});
+
+
 // GET route to render the edit post form
 app.get('/edit-post/:postId', (req, res) => {
     const postId = req.params.postId;
     const post = posts[postId];
     res.render('edit-post.ejs', { post, postId });
 });
-
-
 
 // POST route to handle post updates 
 app.post('/edit-post/:postId', (req, res) => {
@@ -43,12 +64,6 @@ app.post('/edit-post/:postId', (req, res) => {
     res.redirect('/');
 });
 
-
-app.get('/view-post/:postId', (req, res) => {
-    const postId = req.params.postId;
-    const post = posts[postId];
-    res.render('view-post.ejs', { post });
-});
 
 // POST route to handle post deletion 
 app.post('/delete-post/:postId', (req, res) => {
