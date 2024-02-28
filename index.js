@@ -29,7 +29,8 @@ app.post('/create-post', (req, res) => {
     const { title, content } = req.body;
     const newPost = { title, content };
     posts.push(newPost);
-    res.redirect('/');
+    // Redirect to the view post page after saving the new post
+    res.redirect('/view-post/' + (posts.length - 1));
 });
 
 
