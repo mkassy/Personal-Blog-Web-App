@@ -153,7 +153,7 @@ h3 {
 
 
 .create-post-container {
-    margin: 200px 0;
+    margin: 100px 0;
 }
 
 
@@ -227,6 +227,10 @@ textarea {
     font-size: 1.2rem;
 }
 
+.view-posts-container {
+    margin: 100px 0;
+}
+
 
 .view-posts-container h3 {
     justify-content: start;
@@ -281,14 +285,6 @@ footer p {
 
     }
 
-    .create-post-container {
-        margin: 100px 0;
-
-    }
-
-    .view-posts-container {
-        margin: 100px 0;
-    }
 }
 
 
