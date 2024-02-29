@@ -289,10 +289,6 @@ textarea {
     width: 70%;
     border: none;
     background-color: #F5F5F5;
-    /* center the text */
-    /* margin: 0 auto; */
-    padding: 20px;
-
 }
 
 .full-post .post-title {
