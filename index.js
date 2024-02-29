@@ -38,7 +38,7 @@ app.post('/create-post', (req, res) => {
 app.get('/view-post/:postId', (req, res) => {
     const postId = req.params.postId;
     const post = posts[postId];
-    res.render('view-post.ejs', { posts, post }); 
+    res.render('view-post.ejs', { posts, post });
 });
 
 // GET route to render the view-to-edit page
@@ -70,7 +70,7 @@ app.post('/edit-post/:postId', (req, res) => {
     const { title, content } = req.body;
     posts[postId].title = title;
     posts[postId].content = content;
-    res.redirect('/');
+    res.redirect('/view-to-edit/' + postId);
 });
 
 
@@ -78,7 +78,7 @@ app.post('/edit-post/:postId', (req, res) => {
 app.post('/delete-post/:postId', (req, res) => {
     const postId = req.params.postId;
     posts.splice(postId, 1);
-    res.redirect('/');
+    res.redirect('/view-to-edit/' + postId);
 });
 
 
