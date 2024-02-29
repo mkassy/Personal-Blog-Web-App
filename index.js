@@ -56,6 +56,14 @@ app.get('/edit-post/:postId', (req, res) => {
     res.render('edit-post.ejs', { post, postId });
 });
 
+// GET route to render the full post view
+app.get('/full-post/:postId', (req, res) => {
+    const postId = req.params.postId;
+    const post = posts[postId];
+    res.render('full-post.ejs', { post });
+});
+
+
 // POST route to handle post updates 
 app.post('/edit-post/:postId', (req, res) => {
     const postId = req.params.postId;
