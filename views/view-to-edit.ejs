@@ -4,7 +4,7 @@
         <div class="view-posts-container">
             <h3>Your Posts</h3>
             <% posts.forEach((post, index)=> { %>
-                <div class="post">
+                <div class="post clearfix">
                     <h4>
                         <%= post.title %>
                     </h4>
@@ -12,10 +12,10 @@
                         <%= truncate(post.content, 100) %>
                     </p>
                     <!-- <a href="/view-post/<%#= index %>" class="view">Read more</a> -->
-                    <a href="/edit-post/<%= index %>" class="edit">Edit</a>
                     <form action="/delete-post/<%= index %>" method="POST">
-                    <button type="submit" class="delete">Delete</button>
-                    </form>
+                        <button type="submit" class="delete">Delete</button>
+                        </form>
+                    <a href="/edit-post/<%= index %>" class="edit">Edit</a>
                 </div>
                 <% }); %>
         </div>
