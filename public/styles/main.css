@@ -120,7 +120,7 @@ h3 {
 
 .hero-section-text h1 {
     font-size: 4rem;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 
@@ -133,7 +133,7 @@ h3 {
 .flex-container {
     display: flex;
     justify-content: space-between;
-    height: 25vh;
+    /* height: 25vh; */
 }
 
 .card, .post {
@@ -209,14 +209,13 @@ textarea {
     padding: 10px 20px;
     background-color: #8CA88F;
     border: 1px solid black;
-    color: white;
-    /* cursor: pointer; */
+    color: black;
+    cursor: pointer;
     float: right;
     font-family: "Libre Baskerville", serif;
     font-style: normal;
     text-align: center;
     font-weight: 700;
-    
 }
 
 .post-form button:hover {
@@ -256,8 +255,50 @@ textarea {
     display: none;
 }
 
+.post .delete, .edit {
+    float: right;
+    margin: 0 3px;
+    padding: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+    background-color: #F5F5F5;
+}
+
+.post .delete:hover, .edit:hover {
+    background-color: #8CA88F;
+    color: white;
+}
+
+.post button, a {
+    font-family:'Times New Roman', Times, serif;
+}
+
+
 .post:hover .read-more {
     display: block;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.full-post .post {
+    margin: 100px auto;
+    width: 70%;
+    border: none;
+    background-color: #F5F5F5;
+    /* center the text */
+    /* margin: 0 auto; */
+    padding: 20px;
+
+}
+
+.full-post .post-title {
+    font-family: "Libre Baskerville", serif;
+    font-style: normal;
+    margin-bottom: 10px;
 }
 
 
@@ -285,7 +326,7 @@ footer p {
 
     .flex-container {
         flex-direction: column;
-        margin-top: 100px;
+        margin: 50px 0;
         height: 100%;
     }
 
@@ -297,6 +338,10 @@ footer p {
     .main-section {
         width: 90%;
 
+    }
+
+    .full-post .post {
+        width: 90%;
     }
 
 }
